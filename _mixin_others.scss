@@ -95,3 +95,11 @@
     -> O video ou a imagem sempre vai manter essa proporção de tamanho independente da tela aumentar ou diminuir.
     -> Não funciona em nenhum navegador estável ainda.
 */
+
+// | TRANSITION |
+
+@mixin transition__($duration: 1s, $delay: 0s, $property: all, $function: ease) {
+    -webkit-transition: $duration $delay $property $function;
+    -o-transition: $duration $delay $property $function;
+    transition: $duration $delay $property $function;
+}

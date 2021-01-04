@@ -60,3 +60,10 @@
 @mixin place__items($value) {
     place-items: $value;
 }
+
+// | GRID GAP |
+
+@mixin grid__gap($value) {
+    row-gap: $value;
+    column-gap: $value;
+}
