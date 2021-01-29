@@ -1,6 +1,38 @@
-# ARQUIVO CONTENTO MIXINS SASS ÚTEIS PARA DESENVOLVIMENTO FRONTEND
 
-# AUTHOR - MAT RAMALHO
+## MIXINS & FUNCTIONS SASS
+
+    Arquivos com códigos mixins e functions que são frequentimente utilizados em meus projetos. 
+    São códigos onde a maioria faz uso das versões me webkit para que funcione na maioria dos navegadores, 
+    claro que alguns possuem propriedades que alguns navegadores ainda não suportam.
+
+
+### COMANDOS SASS
+
+**Compilar**
+    ```
+        sass assets/sass/style.scss assets/css/style.css
+    ```
+
+**Compilar comprimido**
+    > sass assets/sass/style.scss assets/css/style.css --style compressed
+
+**Compilar sem o arquivo map**
+    > sass assets/sass/style.scss assets/css/style.css --no-source-map
+
+**Compilar sem o arquivo map e na versão comprimida**
+    > sass assets/sass/style.scss assets/css/style.css --no-source-map --style compressed
+
+**Monitorar um arquivo e envia para o arquivo destino**
+    > sass --watch style.scss style.css
+    > sass --watch style.scss style.css --no-source-map --style compressed
+
+**Monitorar todos os arquivos da pasta e envia para pasta de destino**
+    - O arquivo sasse o css tem que ter o mesmo nome.
+    > sass --watch assets/sass:assets/css
+    > sass --watch assets/sass:assets/css --no-source-map --style compressed
+
+
+## AUTHOR - MAT RAMALHO
 
 * [![MR Badge](https://img.shields.io/badge/MR-matheusramalho-B5838D?style=flat-square&labelColor=E5989B&logo=MR&logoColor=white&link=https://matheusramalho.dev)](https://matheusramalho.dev)
 * [![Github Badge](https://img.shields.io/badge/-Github-B5838D?style=flat-square&labelColor=E5989B&logo=Github&logoColor=white&link=https://github.com/MatheusRamalho)](https://github.com/MatheusRamalho)

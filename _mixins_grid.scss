@@ -1,0 +1,69 @@
+// | GRID |
+
+@mixin display__grid { // Display grid.
+    display: -ms-grid;
+    display: grid;
+}
+
+@mixin grid__template__row($value) { // Grid template row.
+    -ms-grid-rows: $value;
+    grid-template-rows: $value;
+}
+
+@mixin grid__template__columns($value) { // Grid template column.
+    // Exemplo: grid-template-columns: repeat(12, 1fr);
+    // Indica que o grid vai ter 12 colunas, e todas com o mesmo tamanho(1fr)
+    // Evita de repetir o "1fr" 12 vezes para indiciar que existem 12 colunas
+    // Exemplo: grid-template-columns: repeat(auto-fit, minmax(150px, 1fr);
+    // auto-fit (conforme a tela aumenta, os itens aumentam para ocupar todo o espaço)
+    // o 1fr da função minmax faz com que os itens possuam o mesmo tamanho.
+    // o 150px da função minmax faz com que os itens tenham no minimo 150px quando a tela diminui.
+
+    grid-template-columns: $value;
+}
+
+@mixin grid__template($value) { // Grid template (row & column).
+    // Escreve linhas e column ao mesmo tempo.
+    // grid-template: auto 1fr auto / auto 1fr auto;
+    // A "/" separa as linhas das colunas.
+
+    -ms-grid-rows: $value;
+    -ms-grid-columns: $value;
+    grid-template: $value;
+}
+
+@mixin grid__column($value) { // Grid column.
+    // Especifica o tamanho e a localização do item em relação as colunas.
+    // grid-column: 1 / 13; - Itens abaixo seriam as formas abreviadas.
+    // grid-column-start =  1 - Inicia na coluna 1
+    // grid-column-end = 13 - Termina na coluna 13
+
+    -ms-grid-column: $value;
+    -ms-grid-column-span: $value;
+    grid-column: $value;
+}
+
+@mixin grid__row($value) { // Grid row.
+    // Especifica o tamanho e a localização do item em relação as linhas.
+    // grid-row: 1 / 13; - Itens abaixo seriam as formas abreviadas.
+    // grid-row-start =  1 - Inicia na linha 1
+    // grid-row-end = 13 - Termina na linha 13
+
+    -ms-grid-row: $value;
+    -ms-grid-row-span: $value;
+    grid-row: $value;
+}
+
+@mixin grid__gap($row, $col) { // Grid gap.
+    // lacuna entre as linhas
+    // Lacuna entre as colunas
+
+    row-gap: $row;
+    column-gap: $col;
+}
+
+@mixin place__items($value) { // Pace Itens.
+    // Propriedade abreviada para align-itemns & justify-itemns
+    // Se o segundo valor não for informado, o primeiro é utilizado para os dois.
+    place-items: $value;
+}

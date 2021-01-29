@@ -1,0 +1,155 @@
+// | MIXINS |
+
+// | TEXTS |
+
+@mixin font__($family, $caminho, $style: normal, $display: auto, $stretch: normal, $synthesis: none, $kerning: auto, $variant: normal) { // Para @font-face.
+    font-family: $family;
+    src: $caminho;
+    // font-weight: $weight;
+    font-style: $style;
+    font-variant: $variant;
+    font-display: $display; // Determina como uma face de fonte é exibida com base em se e quando ela foi baixada e está pronta para uso.
+    font-stretch: $stretch; // Seleciona uma face normal, condensada ou expandida de uma fonte.
+    font-synthesis: $synthesis; // Controla quais fontes ausentes, negrito ou itálico, podem ser sintetizadas pelo navegador.
+    font-kerning: $kerning; // Informação de kerning, controle de ocmo as letras serão espaçadas.
+}
+
+@mixin font__format($weight: 400, $color: $black__, $lineH: normal, $letterS: normal, $textT: none, $margin: 0) { // Formatando fonts.
+    font-weight: $weight;
+    color: $color;
+    line-height: $lineH;
+    letter-spacing: $letterS;
+    text-transform: $textT;
+    margin: $margin;
+}
+
+@mixin truncate__($value) { // Truncate.
+    max-width: $value;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+@mixin placeholder__ { // Placeholder.
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+// | BACKGROUNDS |
+
+@mixin backgrounds__($bg) { // Backgorund para buttons (Não funciona com variavel css).
+    background: $bg;
+
+    &:hover, &:focus {
+        background: darken($bg, 8%);
+        // background: adjust-color($bg, $lightness: -8%);
+        // background: scale-color($bg, $lightness: -8%);
+        @include transition__($duration: 0.3s);
+    }
+
+    &:active, &:active:focus {
+        background: darken($bg, 25%);
+        // background: adjust-color($bg, $lightness: -25%);
+        // background: scale-color($bg, $lightness: -25%);
+    }
+}
+
+@mixin backgrounds__opacity($color, $opcaity: 0.3) { // Background opacity.
+    background: $color; // Para browsers antigos.
+    background: rgba($color, $opacity);
+}
+
+@mixin background__gradient($color, $color2) { // Background Gradient.
+    background: -webkit-gradient(linear, left top, right top, from($color), to($color2));
+    background: -o-linear-gradient(left, $color, $color2);
+    background: linear-gradient(90deg, $color, $color2);
+}
+
+@mixin background__image($image, $gradient: none) {
+    background-image: $image, $gradient;
+}
+
+@mixin background__complement( $color, $size: cover, $origin: border-box, $clip: border-box, $position: center, $repeat: no-repeat, $attachment: scroll) {
+    background-color: $color;
+    background-size: $size;
+    background-repeat: $repeat;
+    background-clip: $clip;
+    background-position: $position; // A posição é relativa à posição do background-origin.
+    background-origin: $origin; // É ignorado se o background-attachment for fixed.
+    background-attachment: $attachment;
+}
+
+// | EFECTS |
+
+@mixin backdrop__($value) {
+    -webkit-backdrop-filter: blur($value);
+    backdrop-filter: blur($value);
+}
+
+@mixin shadow__($shadow, $type: box) { // Shadow.
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+
+    @if ($type == text) {
+        text-shadow: $shadow;
+    }
+}
+
+@mixin transition__($duration: 1s, $delay: 0s, $property: all, $function: ease) { // Transitions.
+    -webkit-transition: $duration $delay $property $function;
+    -o-transition: $duration $delay $property $function;
+    transition: $duration $delay $property $function;
+}
+
+@mixin animate__($name, $duration, $timing, $delay: 0s, $iteration: 1, $direction: normal, $fill: none, $play: running) { // Animations.
+    -webkit-animation-name: $name;
+    animation-name: $name;
+    -webkit-animation-duration: $duration;
+    animation-duration: $duration;
+    -webkit-animation-timing-function: $timing;
+    animation-timing-function: $timing;
+    -webkit-animation-delay: $delay;
+    animation-delay: $delay;
+    -webkit-animation-iteration-count: $iteration;
+    animation-iteration-count: $iteration;
+    -webkit-animation-direction: $direction;
+    animation-direction: $direction;
+    -webkit-animation-fill-mode: $fill;
+    animation-fill-mode: $fill;
+    -webkit-animation-play-state: $play;
+    animation-play-state: $play;
+}
+
+// | ELEMENTS |
+
+@mixin line__($align: center, $width: 4.375rem, $height: 0.125rem, $color, $margin: 1.563rem auto) { // Divider (HR).
+    @if ($align == center) { // Alinhado ao centro.
+        width: $width;
+        height: $height;
+        background-color: $color;
+        margin: 25px auto;
+
+    } @else if ($align == left) { // ALinhado a esquerda.
+        width: $width;
+        height: $height;
+        background-color: $color;
+        margin: 25px 0;
+
+    } @else if($align == right) { // Alinhado a direita.
+        width: $width;
+        height: $height;
+        background-color: $color;
+        margin: 25px 0 25px auto;
+    }
+}
+
+/* aspect-ratio: width / heihgt;
+    -> Para Imagens e Videos.
+    -> Exemplo: apect-ratio: 16 / 9
+    -> O video ou a imagem sempre vai manter essa proporção de tamanho independente da tela aumentar ou diminuir.
+    -> Não funciona em nenhum navegador estável ainda.
+*/
