@@ -32,8 +32,6 @@
 
 **Monitorar todos os arquivos da pasta e envia para pasta de destino**
 
-- O arquivo sass e css tem que ter o mesmo nome.
-
 ``` sass --watch assets/sass:assets/css ```
 
 ``` sass --watch assets/sass:assets/css --no-source-map --style compressed ```
