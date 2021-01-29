@@ -131,19 +131,19 @@
         width: $width;
         height: $height;
         background-color: $color;
-        margin: 25px auto;
+        margin: $margin;
 
     } @else if ($align == left) { // ALinhado a esquerda.
         width: $width;
         height: $height;
         background-color: $color;
-        margin: 25px 0;
+        margin: $margin;
 
     } @else if($align == right) { // Alinhado a direita.
         width: $width;
         height: $height;
         background-color: $color;
-        margin: 25px 0 25px auto;
+        margin: $margin;
     }
 }
 

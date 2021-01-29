@@ -14,10 +14,10 @@
     // Exemplo: grid-template-columns: repeat(12, 1fr);
     // Indica que o grid vai ter 12 colunas, e todas com o mesmo tamanho(1fr)
     // Evita de repetir o "1fr" 12 vezes para indiciar que existem 12 colunas
-    // Exemplo: grid-template-columns: repeat(auto-fit, minmax(150px, 1fr);
+    // Exemplo: grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr);
     // auto-fit (conforme a tela aumenta, os itens aumentam para ocupar todo o espaço)
     // o 1fr da função minmax faz com que os itens possuam o mesmo tamanho.
-    // o 150px da função minmax faz com que os itens tenham no minimo 150px quando a tela diminui.
+    // o 9.375rem da função minmax faz com que os itens tenham no minimo 9.375rem quando a tela diminui.
 
     grid-template-columns: $value;
 }
