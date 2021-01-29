@@ -8,6 +8,10 @@
 
 ### COMANDOS SASS
 
+- Apenas exemplos de comandos para uso em projetos com html puro.
+- Lembre-se de mudar o caminho e nome dos arquivos de acordo a estrutura do seu projeto.
+- Para maiores informações consulte a documentação completa do sass https://sass-lang.com/documentation
+
 **Compilar (dev)**
 
 ``` sass assets/sass/style.scss assets/css/style.css ```
