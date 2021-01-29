@@ -9,25 +9,31 @@
 ### COMANDOS SASS
 
 **Compilar (dev)**
-    ``` sass assets/sass/style.scss assets/css/style.css ```
+
+``` sass assets/sass/style.scss assets/css/style.css ```
 
 **Compilar comprimido (produção)**
-    ``` sass assets/sass/style.scss assets/css/style.css --style compressed ```
+
+``` sass assets/sass/style.scss assets/css/style.css --style compressed ```
 
 **Compilar sem o arquivo map**
-    ``` sass assets/sass/style.scss assets/css/style.css --no-source-map ```
+
+``` sass assets/sass/style.scss assets/css/style.css --no-source-map ```
 
 **Compilar sem o arquivo map e na versão de produção**
-    ``` sass assets/sass/style.scss assets/css/style.css --no-source-map --style compressed ```
+
+``` sass assets/sass/style.scss assets/css/style.css --no-source-map --style compressed ```
 
 **Monitorar 01 arquivo e envia para o arquivo destino**
-    ``` sass --watch style.scss style.css ```
-    ``` sass --watch style.scss style.css --no-source-map --style compressed ```
+
+``` sass --watch style.scss style.css ```
+``` sass --watch style.scss style.css --no-source-map --style compressed ```
 
 **Monitorar todos os arquivos da pasta e envia para pasta de destino**
-    - O arquivo sass e css tem que ter o mesmo nome.
-    ``` sass --watch assets/sass:assets/css ```
-    ``` sass --watch assets/sass:assets/css --no-source-map --style compressed ```
+
+- O arquivo sass e css tem que ter o mesmo nome.
+``` sass --watch assets/sass:assets/css ```
+``` sass --watch assets/sass:assets/css --no-source-map --style compressed ```
 
 
 ### AUTHOR - MAT RAMALHO
