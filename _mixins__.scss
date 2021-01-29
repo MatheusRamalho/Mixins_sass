@@ -58,7 +58,7 @@
     }
 }
 
-@mixin backgrounds__opacity($color, $opcaity: 0.3) { // Background opacity.
+@mixin backgrounds__opacity($color, $opacity: 0.3) { // Background opacity.
     background: $color; // Para browsers antigos.
     background: rgba($color, $opacity);
 }
