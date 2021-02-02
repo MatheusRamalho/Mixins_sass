@@ -64,6 +64,8 @@
 }
 
 @mixin background__gradient($color, $color2) { // Background Gradient.
+    @include prefixes__(linear-gradient, $color, ('webkit', 'o'));
+
     background: -webkit-gradient(linear, left top, right top, from($color), to($color2));
     background: -o-linear-gradient(left, $color, $color2);
     background: linear-gradient(90deg, $color, $color2);
@@ -147,9 +149,24 @@
     }
 }
 
+/// @param {String} $propriedade - Propriedade de CSS sem prefixo
+/// @param {*} $valor - valor de CSS crú
+/// @param {List} $prefixos - Lista de prefixos a serem expostos
+
+@mixin prefixes__($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+      -#{$prefix}-#{$property}: $value;
+    }
+  
+    #{$property}: $value;
+}
+// @include prefixes__(transform, rotate(90deg), ('webkit', 'ms'));
+
+
 /* aspect-ratio: width / heihgt;
     -> Para Imagens e Videos.
     -> Exemplo: apect-ratio: 16 / 9
     -> O video ou a imagem sempre vai manter essa proporção de tamanho independente da tela aumentar ou diminuir.
     -> Não funciona em nenhum navegador estável ainda.
 */
+
