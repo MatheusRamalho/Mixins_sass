@@ -2,7 +2,8 @@
 
 // | TEXTS |
 
-@mixin font__($family, $caminho, $style: normal, $display: auto, $stretch: normal, $synthesis: none, $kerning: auto, $variant: normal) { // Para @font-face.
+// Para @font-face.
+@mixin font__($family, $caminho, $style: normal, $display: auto, $stretch: normal, $synthesis: none, $kerning: auto, $variant: normal) {
     font-family: $family;
     src: $caminho;
     // font-weight: $weight;
@@ -14,16 +15,17 @@
     font-kerning: $kerning; // Informação de kerning, controle de ocmo as letras serão espaçadas.
 }
 
-@mixin font__format($weight: 400, $color: $black__, $lineH: normal, $letterS: normal, $textT: none, $margin: 0) { // Formatando fonts.
+// Formatando fonts.
+@mixin font__format($weight: 400, $color, $lineH: normal, $letterS: normal, $textT: none) {
     font-weight: $weight;
     color: $color;
     line-height: $lineH;
     letter-spacing: $letterS;
     text-transform: $textT;
-    margin: $margin;
 }
 
-@mixin truncate__($value) { // Truncate.
+// Truncate.
+@mixin truncate__($value) {
     max-width: $value;
     white-space: nowrap;
     overflow: hidden;
@@ -31,7 +33,8 @@
     text-overflow: ellipsis;
 }
 
-@mixin placeholder__ { // Placeholder.
+// Placeholder.
+@mixin placeholder__ {
     &.placeholder { @content; }
     &:-moz-placeholder { @content; }
     &::-moz-placeholder { @content; }
@@ -41,7 +44,8 @@
 
 // | BACKGROUNDS |
 
-@mixin backgrounds__($bg) { // Backgorund para buttons (Não funciona com variavel css).
+// Backgorund para buttons.
+@mixin backgrounds__($bg) {
     background: $bg;
 
     &:hover, &:focus {
@@ -58,12 +62,14 @@
     }
 }
 
-@mixin backgrounds__opacity($color, $opacity: 0.3) { // Background opacity.
+// Background opacity.
+@mixin backgrounds__opacity($color, $opacity: 0.3) {
     background: $color; // Para browsers antigos.
     background: rgba($color, $opacity);
 }
 
-@mixin background__gradient($color, $color2) { // Background Gradient.
+// Background Gradient color.
+@mixin background__gradient($color, $color2) {
     @include prefixes__(linear-gradient, $color, ('webkit', 'o'));
 
     background: -webkit-gradient(linear, left top, right top, from($color), to($color2));
@@ -71,10 +77,12 @@
     background: linear-gradient(90deg, $color, $color2);
 }
 
+// Background Gradient image e color.
 @mixin background__image($image, $gradient: none) {
     background-image: $image, $gradient;
 }
 
+// Complementos do backgroud image geralmente.
 @mixin background__complement( $color, $size: cover, $origin: border-box, $clip: border-box, $position: center, $repeat: no-repeat, $attachment: scroll) {
     background-color: $color;
     background-size: $size;
@@ -92,7 +100,8 @@
     backdrop-filter: blur($value);
 }
 
-@mixin shadow__($shadow, $type: box) { // Shadow.
+// Shadow.
+@mixin shadow__($shadow, $type: box) {
     -webkit-box-shadow: $shadow;
     box-shadow: $shadow;
 
@@ -101,13 +110,15 @@
     }
 }
 
-@mixin transition__($duration: 1s, $delay: 0s, $property: all, $function: ease) { // Transitions.
+// Transitions.
+@mixin transition__($duration: 1s, $delay: 0s, $property: all, $function: ease) {
     -webkit-transition: $duration $delay $property $function;
     -o-transition: $duration $delay $property $function;
     transition: $duration $delay $property $function;
 }
 
-@mixin animate__($name, $duration, $timing, $delay: 0s, $iteration: 1, $direction: normal, $fill: none, $play: running) { // Animations.
+// Animations.
+@mixin animate__($name, $duration, $timing, $delay: 0s, $iteration: 1, $direction: normal, $fill: none, $play: running) {
     -webkit-animation-name: $name;
     animation-name: $name;
     -webkit-animation-duration: $duration;
@@ -128,20 +139,24 @@
 
 // | ELEMENTS |
 
-@mixin line__($align: center, $width: 4.375rem, $height: 0.125rem, $color, $margin: 1.563rem auto) { // Divider (HR).
-    @if ($align == center) { // Alinhado ao centro.
+// Divider (HR).
+@mixin line__($align: center, $width: 4.375rem, $height: 0.125rem, $color, $margin: 1.563rem auto) {
+    // Alinhado ao centro.
+    @if ($align == center) {
         width: $width;
         height: $height;
         background-color: $color;
         margin: $margin;
 
-    } @else if ($align == left) { // ALinhado a esquerda.
+        // ALinhado a esquerda.
+    } @else if ($align == left) {
         width: $width;
         height: $height;
         background-color: $color;
         margin: $margin;
 
-    } @else if($align == right) { // Alinhado a direita.
+        // Alinhado a direita.
+    } @else if($align == right) {
         width: $width;
         height: $height;
         background-color: $color;
@@ -169,4 +184,3 @@
     -> O video ou a imagem sempre vai manter essa proporção de tamanho independente da tela aumentar ou diminuir.
     -> Não funciona em nenhum navegador estável ainda.
 */
-

@@ -1,6 +1,7 @@
 // | FLEXBOX |
 
-@mixin display__flex { // Display do tipo flex.
+// Display flex.
+@mixin display__flex {
     // Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens.
 
     display: -webkit-box;
@@ -8,33 +9,39 @@
     display: flex;
 }
 
-@mixin flex__direction($property: row) { // Flex direction
+// Flex direction.
+@mixin flex__direction($property: row) {
     // Define a direção dos flex itens.
     // Por padrão ele é row (linha), por isso quando o display: flex; é adicionado, os elementos ficam em linha, um do lado do outro.
 
-    @if ($property != row and $property != row-reverse and $property != column and $property != column-reverse) { // Error console ide.
+    // Error console ide.
+    @if ($property != row and $property != row-reverse and $property != column and $property != column-reverse) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (row / row-reverse / column / column-reverse).";
     }
 
-    @if ($property == row) { // Os itens ficam em linha
+    // Os itens ficam em linha.
+    @if ($property == row) {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
         flex-direction: row;
 
-    } @else if ($property == row-reverse) { // Os itens ficam em linha reversa, ou seja 3, 2, 1.
+        // Os itens ficam em linha reversa, ou seja 3, 2, 1.
+    } @else if ($property == row-reverse) {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
         flex-direction: row-reverse;
 
-    } @else if ($property == column) { // Os itens ficam em uma única coluna, um embaixo do outro.
+        // Os itens ficam em uma única coluna, um embaixo do outro.
+    } @else if ($property == column) {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
         flex-direction: column;
 
-    } @else if ($property == column-reverse) { // Os itens ficam em uma única coluna, um embaixo do outro, porém em ordem reversa: 3, 2 e 1.
+        // Os itens ficam em uma única coluna, um embaixo do outro, porém em ordem reversa: 3, 2 e 1.
+    } @else if ($property == column-reverse) {
         -webkit-box-orient: vertical;
         -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
@@ -42,75 +49,91 @@
     }
 }
 
-@mixin flex__wrap($property: nowrap) { // Flex wrap;
+// Flex wrap;
+@mixin flex__wrap($property: nowrap) {
     // Define se os itens devem quebrar ou não a linha. Por padrão eles não quebram linha.
 
-    @if ($property != nowrap and $property != wrap and $property != wrap-reverse) { // Error console ide.
+    // Error console ide.
+    @if ($property != nowrap and $property != wrap and $property != wrap-reverse) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (nowrap / wrap / wrap-reverse).";
     }
 
-    @if ($property == nowrap) { // Valor padrão, não permite a quebra de linha.
+    // Valor padrão, não permite a quebra de linha.
+    @if ($property == nowrap) {
         -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
 
-    } @else if ($property == wrap) { // Quebra a linha assim que um dos flex itens não puder mais ser compactado.
+        // Quebra a linha assim que um dos flex itens não puder mais ser compactado.
+    } @else if ($property == wrap) {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
 
-    } @else if ($property == wrap-reverse) { // Quebra a linha assim que um dos flex itens não puder mais ser compactado. A quebra é na direção contrária, ou seja para a linha acima.
+        // Quebra a linha assim que um dos flex itens não puder mais ser compactado. A quebra é na direção contrária, ou seja para a linha acima.
+    } @else if ($property == wrap-reverse) {
         -ms-flex-wrap: wrap-reverse;
         flex-wrap: wrap-reverse;
     }
 }
 
-@mixin flex__flow($property) { // Flex fow.
+// Flex fow.
+@mixin flex__flow($property) {
     // O flex-flow é um atalho para as propriedades flex-direction e flex-wrap.
 
-    @if ($property != row nowrap and $property != row wrap and $property != column nowrap) { // Error console ide.
+    // Error console ide.
+    @if ($property != row nowrap and $property != row wrap and $property != column nowrap) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (row nowrap / row wrap / column nowrap).";
     }
 
-    @if ($property == row nowrap) { // Coloca o conteúdo em linha e não permite a quebra de linha.
+    // Coloca o conteúdo em linha e não permite a quebra de linha.
+    @if ($property == row nowrap) {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -ms-flex-flow: row nowrap;
         flex-flow: row nowrap;
 
-    } @else if ($property == row wrap) { // Coloca o conteúdo em linha e permite a quebra de linha.
+        // Coloca o conteúdo em linha e permite a quebra de linha.
+    } @else if ($property == row wrap) {
         -ms-flex-flow: row wrap;
         flex-flow: row wrap;
 
-    } @else if ($property == column nowrap) { // Coloca o conteúdo em coluna e não permite a quebra de linha.
+        // Coloca o conteúdo em coluna e não permite a quebra de linha.
+    } @else if ($property == column nowrap) {
         -ms-flex-flow: column nowrap;
         flex-flow: column nowrap;
     }
 }
 
-@mixin justify__content($property) { // Justify content.
+// Justify content.
+@mixin justify__content($property) {
     // Alinha os itens flex no container de acordo com a direção.
     // A propriedade só funciona se os itens atuais não ocuparem todo o container.
     // Isso significa que ao definir flex: 1; ou algo similar nos itens, a propriedade não terá mais função.
 
-    @if ($property != start and $property != end and $property != center and $property != between and $property != around) { // Error console ide.
+    // Error console ide.
+    @if ($property != start and $property != end and $property != center and $property != between and $property != around) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (start / end / center / between / around).";
     }
 
-    @if ($property == start) { // Alinha os itens ao início do container.
+    // Alinha os itens ao início do container.
+    @if ($property == start) {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
         justify-content: flex-start;
 
-    } @else if ($property == end) { // Alinha os itens ao final do container.
+        // Alinha os itens ao final do container.
+    } @else if ($property == end) {
         -webkit-box-pack: end;
         -ms-flex-pack: end;
         justify-content: flex-end;
 
-    } @else if ($property == center) { // Alinha os itens ao centro do container.
+        // Alinha os itens ao centro do container.
+    } @else if ($property == center) {
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
 
-    } @else if ($property == between) { // Cria um espaçamento igual entre os elementos. Mantendo o primeiro grudado no início e o último no final.
+        // Cria um espaçamento igual entre os elementos. Mantendo o primeiro grudado no início e o último no final.
+    } @else if ($property == between) {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
@@ -122,113 +145,137 @@
     }
 }
 
-@mixin align__items($property: stretch) { // Align itens.
+// Align itens.
+@mixin align__items($property: stretch) {
     // O align-items alinha os flex itens de acordo com o eixo do container.
     // O alinhamento é diferente para quando os itens estão em colunas ou linhas.
 
-    @if ($property != stretch and $property != start and $property != center and $property != end and $property != baseline) { // Error console ide.
+    // Error console ide.
+    @if ($property != stretch and $property != start and $property != center and $property != end and $property != baseline) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (stretch / start / center / end / baseline).";
     }
 
-    @if ($property == stretch) { // Valor padrão, ele que faz com que os flex itens cresçam igualmente.
+    // Valor padrão, ele que faz com que os flex itens cresçam igualmente.
+    @if ($property == stretch) {
         -webkit-box-align: stretch;
         -ms-flex-align: stretch;
         align-items: stretch;
 
-    } @else if ($property == start) { // Alinha os itens ao início.
+        // Alinha os itens ao início.
+    } @else if ($property == start) {
         -webkit-box-align: start;
         -ms-flex-align: start;
         align-items: flex-start;
 
-    } @else if ($property == center) { // Alinha os itens ao centro.
+        // Alinha os itens ao centro.
+    } @else if ($property == center) {
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
 
-    } @else if ($property == end) { // Alinha os itens ao final.
+        // Alinha os itens ao final.
+    } @else if ($property == end) {
         -webkit-box-align: end;
         -ms-flex-align: end;
         align-items: flex-end;
 
-    } @else if ($property == baseline) { // Alinha os itens de acordo com a linha base da tipografia.
+        // Alinha os itens de acordo com a linha base da tipografia.
+    } @else if ($property == baseline) {
         -webkit-box-align: baseline;
         -ms-flex-align: baseline;
         align-items: baseline;
     }
 }
 
-@mixin align__content($property: stretch) { // Align content
+// Align content.
+@mixin align__content($property: stretch) {
     // Alinha as linhas do container em relação ao eixo vertical.
     // A propriedade só funciona se existir mais de uma linha de flex-itens. Para isso o flex-wrap precisa ser wrap.
 
-    @if ($property != stretch and $property != start and $property != end and $property != center and $property != between and $property != around) { // Error console ide.
+    // Error console ide.
+    @if ($property != stretch and $property != start and $property != end and $property != center and $property != between and $property != around) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (stretch / start / end / center / between / around).";
     }
 
-    @if ($property == stretch) { // Valor padrão, ele que faz com que os flex itens cresçam igualmente na vertical.
+    // Valor padrão, ele que faz com que os flex itens cresçam igualmente na vertical.
+    @if ($property == stretch) {
         -ms-flex-line-pack: stretch;
         align-content: stretch;
 
-    } @else if ($property == start) { // Alinha todas as linhas de itens ao início.
+        // Alinha todas as linhas de itens ao início.
+    } @else if ($property == start) {
         -ms-flex-line-pack: start;
         align-content: flex-start;
 
-    } @else if ($property == end) { // Alinha todas as linhas de itens ao final.
+        // Alinha todas as linhas de itens ao final.
+    } @else if ($property == end) {
         -ms-flex-line-pack: end;
         align-content: flex-end;
 
-    } @else if ($property == center) { // Alinha todas as linhas de itens ao centro.
+        // Alinha todas as linhas de itens ao centro.
+    } @else if ($property == center) {
         -ms-flex-line-pack: center;
         align-content: center;
 
-    } @else if ($property == between) { // Cria um espaçamento igual entre as linhas. Mantendo a primeira grudada no topo e a última no bottom.
+        // Cria um espaçamento igual entre as linhas. Mantendo a primeira grudada no topo e a última no bottom.
+    } @else if ($property == between) {
         -ms-flex-line-pack: justify;
         align-content: space-between;
 
-    } @else if ($property == around) { // Cria um espaçamento entre as linhas. Os espaçamentos do meio são duas vezes maiores que o top e bottom.
+        // Cria um espaçamento entre as linhas. Os espaçamentos do meio são duas vezes maiores que o top e bottom.
+    } @else if ($property == around) {
         -ms-flex-line-pack: distribute;
         align-content: space-around;
     }
 }
 
-@mixin align__self($property: auto) { // Align self.
+// Align self.
+@mixin align__self($property: auto) {
     // O align-self serve para definirmos o alinhamento específico de um único flex item dentro do nosso container.
     // Caso um valor seja atribuído, ele passara por cima do que for atribuído no align-items do container.
 
-    @if ($property != auto and $property != start and $property != end and $property != center and $property != baseline and $property != stretch) { // Error console ide.
+    // Error console ide.
+    @if ($property != auto and $property != start and $property != end and $property != center and $property != baseline and $property != stretch) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (stretch / start / end / center / baseline / stretch).";
     }
 
-    @if ($property == auto) { // Valor inicial padrão. Vai respeitar o que for definido pelo align-items no flex-container.
+    // Valor inicial padrão. Vai respeitar o que for definido pelo align-items no flex-container.
+    @if ($property == auto) {
         -ms-flex-item-align: auto;
         -ms-grid-row-align: auto;
         align-self: auto;
 
-    } @else if ($property == start) { // Alinha o item ao início.
+        // Alinha o item ao início.
+    } @else if ($property == start) {
         -ms-flex-item-align: start;
         align-self: flex-start;
 
-    } @else if ($property == end) { // Alinha o item ao final.
+        // Alinha o item ao final.
+    } @else if ($property == end) {
         -ms-flex-item-align: end;
         align-self: flex-end;
 
-    } @else if ($property == center) { // Alinha o item ao centro.
+        // Alinha o item ao centro.
+    } @else if ($property == center) {
         -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
 
-    } @else if ($property == baseline) { // Alinha o item a linha de base.
+        // Alinha o item a linha de base.
+    } @else if ($property == baseline) {
         -ms-flex-item-align: baseline;
         align-self: baseline;
 
-    } @else if ($property == stretch) { // Estica o item.
+        // Estica o item.
+    } @else if ($property == stretch) {
         -ms-flex-item-align: stretch;
         -ms-grid-row-align: stretch;
         align-self: stretch;
     }
 }
 
-@mixin flex__grow($property: 0) { // Flex grow.
+// Flex grow.
+@mixin flex__grow($property: 0) {
     // Define a habilidade de um flex item crescer.
     // Por padrão o valor é zero, assim os flex itens ocupam um tamanho máximo relacionado o conteúdo interno deles ou ao width definido.
 
@@ -237,14 +284,16 @@
     flex-grow: $property;
 }
 
-@mixin flex__basis($property: auto) { // Flex basis.
+// Flex basis.
+@mixin flex__basis($property: auto) {
     // Indica o tamanho inicial do flex item antes da distribuição do espaço restante.
 
     -ms-flex-preferred-size: $property;
     flex-basis: $property;
 }
 
-@mixin flex__shrink($property: 1) { // Flex shrink.
+// Flex shrink.
+@mixin flex__shrink($property: 1) {
     // Valor padrão, permite que os itens tenham os seus tamanhos (seja esse tamanho definido a partir de width ou flex-basis) reduzidos para caber no container.
     // Não permite a diminuição dos itens, assim um item com flex-basis: 18.75rem; nunca diminuirá menos do que 18.75rem, mesmo que o conteúdo não ocupe todo esse espaço.
     // Um item com shrink: 3 diminuirá 3 vezes mais que um item com 1.
@@ -253,7 +302,8 @@
     flex-shrink: $property;
 }
 
-@mixin flex__($property: 0 1 auto) { // Flex.
+// Flex.
+@mixin flex__($property: 0 1 auto) {
     // Atalho para as propriedades flex-grow, flex-shrink e flex-basis.
     // Geralmente você verá a propriedade flex nos flex itens ao invés de cada um dos valores separados.
 
@@ -262,7 +312,8 @@
     flex: $property;
 }
 
-@mixin order__($property: 0) { // Order.
+// Order.
+@mixin order__($property: 0) {
     // Modifica a ordem dos flex itens.
     // Sempre do menor para o maior, assim order: 1, aparece na frente de order: 5.
 
@@ -271,7 +322,11 @@
     order: $property;
 }
 
-@mixin flex__combo($align: center, $justify: center) { // Flex
+// Flex.
+@mixin flex__combo($align: center, $justify: center) {
+    // Combo do display, align e justify.
+    // Usar quando precisar usar os 3 itens em um elemento.
+    
     @include display__flex;
     @include align__items($align);
     @include justify__content($justify);
