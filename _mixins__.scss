@@ -16,12 +16,13 @@
 }
 
 // Formatando fonts.
-@mixin font__format($weight: 400, $color, $lineH: normal, $letterS: normal, $textT: none) {
+@mixin font__format($weight: 400, $color, $lineH: normal, $letterS: normal, $textT: none, $textA: start) {
     font-weight: $weight;
     color: $color;
     line-height: $lineH;
     letter-spacing: $letterS;
     text-transform: $textT;
+    text-align: $textA;
 }
 
 // Truncate.
