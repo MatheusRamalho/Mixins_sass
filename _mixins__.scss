@@ -141,27 +141,24 @@
 // | ELEMENTS |
 
 // Divider (HR).
-@mixin line__($align: center, $width: 4.375rem, $height: 0.125rem, $color, $margin: 1.563rem auto) {
+@mixin line__($align: center,  $color, $width: 4.375rem, $height: 0.125rem, $marginT: 0.5rem, $marginB: 0.7rem, $borderR: 0) {
+    width: $width;
+    height: $height;
+    border-radius: $borderR;
+    background-color: $color;
+    display: block;
+
     // Alinhado ao centro.
     @if ($align == center) {
-        width: $width;
-        height: $height;
-        background-color: $color;
-        margin: $margin;
+        margin: $marginT auto $marginB auto;
 
         // ALinhado a esquerda.
     } @else if ($align == left) {
-        width: $width;
-        height: $height;
-        background-color: $color;
-        margin: $margin;
+        margin: $marginT auto $marginB 0;
 
         // Alinhado a direita.
     } @else if($align == right) {
-        width: $width;
-        height: $height;
-        background-color: $color;
-        margin: $margin;
+        margin: $marginT 0 $marginB auto;
     }
 }
 
