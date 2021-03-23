@@ -1,77 +1,130 @@
 // | GRID |
 
-// Display grid.
+// GRID DISPLAY.
 @mixin display__grid {
     display: -ms-grid;
     display: grid;
 }
 
-// Grid template row.
+// Duas formas:
+// 1 / 13 - Inicia na linha ou coluna imaginaria 1 e termina na linha ou coluna imaginária 13.
+// 1 / span 12 - Inicia na linha ou coluna 1 e termina no final do elemento na linha ou coluna 12.
+// Ex: grid-colum: 1 / 13; === grid-colum: 1 / span 12;
+
+// GRID TEMPLATE.
+// Especifica o tamanho do grid, tamanho das colunas e linhas do grid template.
+// A contagem para posicionar elementos do grid é feita pelo inicio e fim das linhas e colunas e não pelas colunas e linhas em si.
+// Ex: Quando um grid possui 12 linhas e 12 colunas por exemplo, a contagem é para posicionar é 1 à 13.
+
 @mixin grid__template__row($value) {
     -ms-grid-rows: $value;
-    grid-template-rows: $value;
+    grid-template-rows: $value; // Quantas linhas o grid vai possuir.
 }
 
-// Grid template column.
 @mixin grid__template__columns($value) {
-    // Exemplo: grid-template-columns: repeat(12, 1fr);
-    // Indica que o grid vai ter 12 colunas, e todas com o mesmo tamanho(1fr)
-    // Evita de repetir o "1fr" 12 vezes para indiciar que existem 12 colunas
-    // Exemplo: grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr);
-    // auto-fit (conforme a tela aumenta, os itens aumentam para ocupar todo o espaço)
-    // o 1fr da função minmax faz com que os itens possuam o mesmo tamanho.
-    // o 9.375rem da função minmax faz com que os itens tenham no minimo 9.375rem quando a tela diminui.
-
-    grid-template-columns: $value;
+    -ms-grid-columns: $value;
+    grid-template-columns: $value; // Quantas colunas o grid vai possuir - Ex: repeat(12, 1fr).
 }
 
-// Grid template (row & column).
 @mixin grid__template($value) {
-    // Escreve linhas e column ao mesmo tempo.
-    // grid-template: auto 1fr auto / auto 1fr auto;
-    // A "/" separa as linhas das colunas.
-
     -ms-grid-rows: $value;
     -ms-grid-columns: $value;
-    grid-template: $value;
+    grid-template: $value; // Quantas linhas / colunas o grid vai possuir - Ex: auto 1fr auto / auto 1fr auto.
 }
 
-// Grid column.
-@mixin grid__column($value) {
-    // Especifica o tamanho e a localização do item em relação as colunas.
-    // grid-column: 1 / 13; - Itens abaixo seriam as formas abreviadas.
-    // grid-column-start =  1 - Inicia na coluna 1
-    // grid-column-end = 13 - Termina na coluna 13
+// GRID COLUMN.
+// Especifica o tamanho e a localização do item em relação as colunas. 
 
+@mixin grid__column__start($value) {
+    -ms-grid-column: $value;
+    grid-column-start: $value; // Coluna de inicio do elemento
+}
+
+@mixin grid__column__end($value) {
+    -ms-grid-column-span: $value;
+    grid-column-end: $value; // Coluna de término do elemento
+}
+
+@mixin grid__column($value) {
     -ms-grid-column: $value;
     -ms-grid-column-span: $value;
-    grid-column: $value;
+    grid-column: $value; // Coluna de início e término do elemento - Ex: 1 / 13
 }
 
-// Grid row.
-@mixin grid__row($value) {
-    // Especifica o tamanho e a localização do item em relação as linhas.
-    // grid-row: 1 / 13; - Itens abaixo seriam as formas abreviadas.
-    // grid-row-start =  1 - Inicia na linha 1
-    // grid-row-end = 13 - Termina na linha 13
+// GRID ROW.
+// Especifica o tamanho e a localização do item em relação as linhas.
 
+@mixin grid__row__start($value) {
+    -ms-grid-row: $value;
+    grid-row-start: $value; // Linha de inicio do elemento
+}
+
+@mixin grid__row__end($value) {
+    -ms-grid-row-span: $value;
+    grid-row-end: $value; // Linha de término do elemento
+}
+
+@mixin grid__row($value) {
     -ms-grid-row: $value;
     -ms-grid-row-span: $value;
-    grid-row: $value;
+    grid-row: $value; // Linha de início e término do elemento
 }
 
-// Grid gap.
-@mixin grid__gap($row, $col) {
-    // lacuna entre as linhas
-    // Lacuna entre as colunas
+// GRID AREA.
+// Função 01 resumo do grid column (star e end) e grid row (star e end).
+// Função 02 nomear uma área.
 
-    row-gap: $row;
-    column-gap: $col;
+@mixin grid__area($name: "", $rs, $cs, $re, $ce) {
+    @if (unquote($name) != null) {
+        // Função 02 do grid-area.
+        grid-area: $name;
+
+    } @else {
+        // Ordem: row start / column start / row end / column end.
+        -ms-grid-row: $rs / $cs / $re / $ce;
+        -ms-grid-column: $rs / $cs / $re / $ce;
+        grid-area: $rs / $cs / $re / $ce;
+    }
 }
 
-// Pace Itens.
+// GRID TEMPLATE AREAS.
+// O grid-area na função de nomear os elementos é utilizada pelo grid-templete-areas.
+// usar um ponto no lugar do nome do elemento quando quer que o espaço seja vazio.
+
+// Ex: grid com duas colunas e duas linhas.
+// grid-template-areas: 
+//     "item01 item02"
+//     "item03 item04"
+// ;
+
+@mixin grid__templete__areas() {
+}
+
+// GRID GAP.
+
+@mixin grid__gap__column($value) {
+    -webkit-column-gap: $value;
+    -moz-column-gap: $value;
+    column-gap: $value; // Lacuna entre as colunas
+}
+
+@mixin grid__gap__row($value) {
+    row-gap: $value; // lacuna entre as linhas
+}
+
+@mixin grid__gap($value) {
+    gap: $value; // Lacuna entre linhas e colunas
+}
+
+// PLACE ITENS.
+// Propriedade abreviada para align-items & justify-items
+// Se o segundo valor não for informado, o primeiro é utilizado para os dois.
+
 @mixin place__items($value) {
-    // Propriedade abreviada para align-itemns & justify-itemns
-    // Se o segundo valor não for informado, o primeiro é utilizado para os dois.
     place-items: $value;
 }
+
+// repeat() - Evita repetir elementos, o primeiro parâmetro indica quantas vezes vai repetir e o segundo é o valor que se repetirá. Ex: repeat(12, 1fr);
+// repeat(auto-fit, minmax(9.375rem, 1fr);
+// auto-fit - conforme a tela aumenta, os itens aumentam para ocupar todo o espaço.
+// minmax - primeiro parâmetro "9.375rem" é o valor minimo e o segungo parâmetro "1fr" é o valor máximo.

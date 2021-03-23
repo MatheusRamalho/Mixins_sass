@@ -1,20 +1,24 @@
-// | BACKGROUND GRADIENT |
+// | FUNCTIONS |
 
-// Background gradient.
+// BACKGROUNDS
+
+// Gradient 01.
 @function gradient__($type, $value, $color, $color2) {
     $gradient: #{$type}-gradient(#{$value}deg, $color, $color2);
 
     @return $gradient;
 }
 
-// Backgorund gradient.
+// Gradient 02.
 @function gradient__detail($type, $value, $color__01, $opacity__01, $value__01, $color__02, $opacity__02, $value__02) {
     $gradient: #{$type}-gradient(#{$value}deg, rgba($color__01, $opacity__01) #{$value__01}, rgba($color__02, $opacity__02) #{$value__02});
 
     @return $gradient;
 }
 
-// Converter pixels em rem.
+// CONVERSOR
+
+// PX -> REM.
 @function convert__for__rem($value, $base: 16) {
     @if type-of($value) == "number" { // type-of - retorna o tipo do valor.
         @warn "O valor é um número: #{ $value }";

@@ -1,25 +1,23 @@
 // | FLEXBOX |
 
-// Display flex.
+// FLEX DISPLAY.
+// Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens.
 @mixin display__flex {
-    // Torna o elemento um flex container automaticamente transformando todos os seus filhos diretos em flex itens.
-
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
-// Flex direction.
+// FLEX DIRECTION.
+// Define a direção dos flex itens.
+// Por padrão ele é row (linha), por isso quando o display: flex; é adicionado, os elementos ficam em linha, um do lado do outro.
 @mixin flex__direction($property: row) {
-    // Define a direção dos flex itens.
-    // Por padrão ele é row (linha), por isso quando o display: flex; é adicionado, os elementos ficam em linha, um do lado do outro.
-
     // Error console ide.
     @if ($property != row and $property != row-reverse and $property != column and $property != column-reverse) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (row / row-reverse / column / column-reverse).";
     }
 
-    // Os itens ficam em linha.
+        // Os itens ficam em linha.
     @if ($property == row) {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -49,16 +47,15 @@
     }
 }
 
-// Flex wrap;
+// FLEX WRAP;
+// Define se os itens devem quebrar ou não a linha. Por padrão eles não quebram linha.
 @mixin flex__wrap($property: nowrap) {
-    // Define se os itens devem quebrar ou não a linha. Por padrão eles não quebram linha.
-
     // Error console ide.
     @if ($property != nowrap and $property != wrap and $property != wrap-reverse) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (nowrap / wrap / wrap-reverse).";
     }
 
-    // Valor padrão, não permite a quebra de linha.
+        // Valor padrão, não permite a quebra de linha.
     @if ($property == nowrap) {
         -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -75,16 +72,15 @@
     }
 }
 
-// Flex fow.
+// FLEX FLOW.
+// O flex-flow é um atalho para as propriedades flex-direction e flex-wrap.
 @mixin flex__flow($property) {
-    // O flex-flow é um atalho para as propriedades flex-direction e flex-wrap.
-
     // Error console ide.
     @if ($property != row nowrap and $property != row wrap and $property != column nowrap) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (row nowrap / row wrap / column nowrap).";
     }
 
-    // Coloca o conteúdo em linha e não permite a quebra de linha.
+        // Coloca o conteúdo em linha e não permite a quebra de linha.
     @if ($property == row nowrap) {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -103,18 +99,17 @@
     }
 }
 
-// Justify content.
+// JUSTIFY CONTENT.
+// Alinha os itens flex no container de acordo com a direção.
+// A propriedade só funciona se os itens atuais não ocuparem todo o container.
+// Isso significa que ao definir flex: 1; ou algo similar nos itens, a propriedade não terá mais função.
 @mixin justify__content($property) {
-    // Alinha os itens flex no container de acordo com a direção.
-    // A propriedade só funciona se os itens atuais não ocuparem todo o container.
-    // Isso significa que ao definir flex: 1; ou algo similar nos itens, a propriedade não terá mais função.
-
     // Error console ide.
     @if ($property != start and $property != end and $property != center and $property != between and $property != around) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (start / end / center / between / around).";
     }
 
-    // Alinha os itens ao início do container.
+        // Alinha os itens ao início do container.
     @if ($property == start) {
         -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -145,17 +140,16 @@
     }
 }
 
-// Align itens.
+// ALIGN ITENS.
+// O align-items alinha os flex itens de acordo com o eixo do container.
+// O alinhamento é diferente para quando os itens estão em colunas ou linhas.
 @mixin align__items($property: stretch) {
-    // O align-items alinha os flex itens de acordo com o eixo do container.
-    // O alinhamento é diferente para quando os itens estão em colunas ou linhas.
-
     // Error console ide.
     @if ($property != stretch and $property != start and $property != center and $property != end and $property != baseline) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (stretch / start / center / end / baseline).";
     }
 
-    // Valor padrão, ele que faz com que os flex itens cresçam igualmente.
+        // Valor padrão, ele que faz com que os flex itens cresçam igualmente.
     @if ($property == stretch) {
         -webkit-box-align: stretch;
         -ms-flex-align: stretch;
@@ -187,17 +181,16 @@
     }
 }
 
-// Align content.
+// ALIGN CONTENT.
+// Alinha as linhas do container em relação ao eixo vertical.
+// A propriedade só funciona se existir mais de uma linha de flex-itens. Para isso o flex-wrap precisa ser wrap.
 @mixin align__content($property: stretch) {
-    // Alinha as linhas do container em relação ao eixo vertical.
-    // A propriedade só funciona se existir mais de uma linha de flex-itens. Para isso o flex-wrap precisa ser wrap.
-
     // Error console ide.
     @if ($property != stretch and $property != start and $property != end and $property != center and $property != between and $property != around) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (stretch / start / end / center / between / around).";
     }
 
-    // Valor padrão, ele que faz com que os flex itens cresçam igualmente na vertical.
+        // Valor padrão, ele que faz com que os flex itens cresçam igualmente na vertical.
     @if ($property == stretch) {
         -ms-flex-line-pack: stretch;
         align-content: stretch;
@@ -229,11 +222,10 @@
     }
 }
 
-// Align self.
+// ALIGN SELF.
+// O align-self serve para definirmos o alinhamento específico de um único flex item dentro do nosso container.
+// Caso um valor seja atribuído, ele passara por cima do que for atribuído no align-items do container.
 @mixin align__self($property: auto) {
-    // O align-self serve para definirmos o alinhamento específico de um único flex item dentro do nosso container.
-    // Caso um valor seja atribuído, ele passara por cima do que for atribuído no align-items do container.
-
     // Error console ide.
     @if ($property != auto and $property != start and $property != end and $property != center and $property != baseline and $property != stretch) {
         @error "A propriedade #{$property} é diferente dos valores aceitos (stretch / start / end / center / baseline / stretch).";
@@ -274,59 +266,53 @@
     }
 }
 
-// Flex grow.
+// FLEX GROW.
+// Define a habilidade de um flex item crescer.
+// Por padrão o valor é zero, assim os flex itens ocupam um tamanho máximo relacionado o conteúdo interno deles ou ao width definido.
 @mixin flex__grow($property: 0) {
-    // Define a habilidade de um flex item crescer.
-    // Por padrão o valor é zero, assim os flex itens ocupam um tamanho máximo relacionado o conteúdo interno deles ou ao width definido.
-
     -webkit-box-flex: $property;
     -ms-flex-positive: $property;
     flex-grow: $property;
 }
 
 // Flex basis.
+// Indica o tamanho inicial do flex item antes da distribuição do espaço restante.
 @mixin flex__basis($property: auto) {
-    // Indica o tamanho inicial do flex item antes da distribuição do espaço restante.
-
     -ms-flex-preferred-size: $property;
     flex-basis: $property;
 }
 
-// Flex shrink.
+// FLEX SHRINK.
+// Valor padrão, permite que os itens tenham os seus tamanhos (seja esse tamanho definido a partir de width ou flex-basis) reduzidos para caber no container.
+// Não permite a diminuição dos itens, assim um item com flex-basis: 18.75rem; nunca diminuirá menos do que 18.75rem, mesmo que o conteúdo não ocupe todo esse espaço.
+// Um item com shrink: 3 diminuirá 3 vezes mais que um item com 1.
 @mixin flex__shrink($property: 1) {
-    // Valor padrão, permite que os itens tenham os seus tamanhos (seja esse tamanho definido a partir de width ou flex-basis) reduzidos para caber no container.
-    // Não permite a diminuição dos itens, assim um item com flex-basis: 18.75rem; nunca diminuirá menos do que 18.75rem, mesmo que o conteúdo não ocupe todo esse espaço.
-    // Um item com shrink: 3 diminuirá 3 vezes mais que um item com 1.
-
     -ms-flex-negative: $property;
     flex-shrink: $property;
 }
 
-// Flex.
+// FLEX.
+// Atalho para as propriedades flex-grow, flex-shrink e flex-basis.
+// Geralmente você verá a propriedade flex nos flex itens ao invés de cada um dos valores separados.
 @mixin flex__($property: 0 1 auto) {
-    // Atalho para as propriedades flex-grow, flex-shrink e flex-basis.
-    // Geralmente você verá a propriedade flex nos flex itens ao invés de cada um dos valores separados.
-
     -webkit-box-flex: $property;
     -ms-flex: $property;
     flex: $property;
 }
 
-// Order.
+// ORDER.
+// Modifica a ordem dos flex itens.
+// Sempre do menor para o maior, assim order: 1, aparece na frente de order: 5.
 @mixin order__($property: 0) {
-    // Modifica a ordem dos flex itens.
-    // Sempre do menor para o maior, assim order: 1, aparece na frente de order: 5.
-
     -webkit-box-ordinal-group: $property;
     -ms-flex-order: $property;
     order: $property;
 }
 
-// Flex.
+// FLEX COMBO.
+// Combo do display, align e justify.
+// Usar quando precisar usar os 3 itens em um elemento.
 @mixin flex__combo($align: center, $justify: center) {
-    // Combo do display, align e justify.
-    // Usar quando precisar usar os 3 itens em um elemento.
-    
     @include display__flex;
     @include align__items($align);
     @include justify__content($justify);
