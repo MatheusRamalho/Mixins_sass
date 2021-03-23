@@ -1,17 +1,21 @@
 // | ICONS |
 
+// CLASS PADRÃO DE TODOS OS ICONES.
 .icon__ {
     width: 1.875rem;
     height: 1.875rem;
     display: inline-block;
-    background-color: #002333;
+    background-color: $color__ter;
+    background-repeat: no-repeat;
 
-    @include transition__($duration: 1s, $property: background-color, $function: linear);
+    @include transition__($duration: 200ms, $property: background-color);
 
     &:hover, &:focus {
-        background-color: #00ff84;
+        background-color: $color__sec;
     }
 }
+
+// CLASS QUE CONTÉM CADA ITEM.
 
 // MAP
 

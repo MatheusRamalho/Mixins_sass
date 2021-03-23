@@ -1,0 +1,21 @@
+// | SCROLLS |
+
+* {
+    // Firefox.
+    scrollbar-width: auto;  // values: auto, thin ou none.
+    scrollbar-color: #E7E7E7 transparent;
+    
+    // Chrome, Edge e Safari .
+    &::-webkit-scrollbar { // BAR.
+        width: 0.938rem;
+    }
+    
+    &::-webkit-scrollbar-thumb { // BAR ALÇA.
+        background-color: #E7E7E7;
+    }
+    
+    &::-webkit-scrollbar-track { // BAR FUNDO.
+        background-color: transparent;
+    }
+}
+

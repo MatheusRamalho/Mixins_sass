@@ -1,0 +1,41 @@
+// | BUTTONS |
+
+.button__ {
+    cursor: pointer;
+    display: inline-block;
+    width: fit-content;
+    height: auto;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: $color__snow;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    color: $color__ter;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    @include transition__($duration: 200ms, $property: color);
+    @include flex__combo;
+
+    .icon__ {
+        width: 1.7rem;
+        height: 1.7rem;
+        margin-right: 0.7rem;
+    }
+
+    &:hover {
+        background-color: $color__grey;
+
+        .icon__ {
+            background-color: $color__sec;
+        }
+    }
+}

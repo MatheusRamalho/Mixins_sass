@@ -1,0 +1,9 @@
+// | FONTS |
+
+@font-face {
+    @include font__(
+        $family: '',
+        $caminho: url(''),
+        $style: normal, $display: auto, $stretch: normal, $synthesis: none, $kerning: auto, $variant: normal
+    );
+}
