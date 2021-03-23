@@ -1,0 +1,16 @@
+// | STYLE GERAL |
+
+// Mova esse arquivo para fora da pasta style__base.
+
+@import "style__base/mixins/functions__";
+@import "style__base/mixins/mixins__flexbox__";
+@import "style__base/mixins/mixins__grid__";
+@import "style__base/mixins/mixins__";
+
+@import "style__base/resets__";
+@import "style__base/icons__";
+@import "style__base/fonts__";
+@import "style__base/variables__";
+@import "style__base/scrolls__";
+@import "style__base/buttons__";
+@import "style__base/links__";
