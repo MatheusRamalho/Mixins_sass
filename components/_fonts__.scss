@@ -1,9 +1,16 @@
 // | FONTS |
 
+// Importando arquivo de fonte localmente.
+// Faz algumas formatações direto na fonte.
 @font-face {
     @include font__(
         $family: '',
         $caminho: url(''),
-        $style: normal, $display: auto, $stretch: normal, $synthesis: none, $kerning: auto, $variant: normal
+        $style: normal, 
+        $display: auto,
+        $stretch: normal,
+        $synthesis: none,
+        $kerning: auto,
+        $variant: normal
     );
 }

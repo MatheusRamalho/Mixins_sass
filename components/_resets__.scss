@@ -1,8 +1,8 @@
 // | RESET |
 
-*,
-*::before,
-*::after {
+// Resetas o estilo padrão dos navegadores,
+// Buscando deixar todos numa forma igual.
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;

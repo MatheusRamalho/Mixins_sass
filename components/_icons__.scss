@@ -1,21 +1,29 @@
 // | ICONS |
 
-// CLASS PADRÃO DE TODOS OS ICONES.
+// Pacote de icones via sass.
+// Usando dessa forma é possível alterar a cor do background do icone.
+// Modo de uso: <span class="icon__ categoria__nome"></span>
+// OBS: Os icones de rede sociais não pertence ao pacote, então pode haver divergência neles.
+
+// Class padrão.
+// Formatação padrão para todos os icones.
 .icon__ {
     width: 1.875rem;
     height: 1.875rem;
     display: inline-block;
-    background-color: $color__ter;
+    background-color: $color__black;
     background-repeat: no-repeat;
 
     @include transition__($duration: 200ms, $property: background-color);
 
     &:hover, &:focus {
-        background-color: $color__sec;
+        background-color: $color__pri;
     }
 }
 
-// CLASS QUE CONTÉM CADA ITEM.
+// Class personalizada
+// Cada classe leva primeiro o nome da categoria do icone e depois o nome do icone.
+// categoria__nomeIcone.
 
 // MAP
 

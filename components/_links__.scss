@@ -1,6 +1,8 @@
 // | LINKS |
 
-.link__ {
+// Pseudo-class para links devem seguir a regra LVHA (Link - Visited - Hover - Active).
+a, a:link,
+.link__, .link__:link {
     width: fit-content;
     height: auto;
     padding: 0.5rem 1rem;
@@ -8,7 +10,22 @@
     background-color: $color__snow;
     outline: none;
     text-decoration: none;
+
     font-style: normal;
     font-size: 0.8rem;
     color: $color__blue;
+
+    &:visited { // Quando o link for visitado.
+        color: $color__black;
+    }
+
+    &:hover, &:focus { // Quando o link recebe o mouse.
+        background-color: $color__sec;
+        color: $color__black;
+    }
+
+    &:active { // Quando o link é clicado.
+        background-color: $color__pri;
+        color: $color__white;
+    }
 }
