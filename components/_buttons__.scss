@@ -12,6 +12,7 @@ button, .button__ {
     background-color: $color__snow;
     outline: none;
     text-decoration: none;
+    font-family: $font__text;
     font-size: 0.875rem;
 
     @include font__format($weight: 500, $color: $color__black, $lineH: 1.25rem, $textA: center);
