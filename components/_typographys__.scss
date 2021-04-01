@@ -79,8 +79,9 @@ h6, .h6__ {
 }
 
 .text__small {
-    font-size: 0.8rem;
+    font-family: $font__text__small;
     font-weight: 300;
+    font-size: 0.8rem;
 }
 
 p,
