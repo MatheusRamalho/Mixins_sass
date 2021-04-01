@@ -8,7 +8,7 @@
     margin: 0.5rem 0.5rem 0.5rem 0;
     padding: 0.8rem 1.5rem;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: 1.25rem;
     background-color: $color__snow;
     outline: none;
     text-decoration: none;
@@ -41,4 +41,12 @@
             background-color: $color__white;
         }
     }
+}
+
+.button__full {
+    width: 100%;
+}
+
+.button__small {
+    padding: 0.6rem 1.5rem;
 }
