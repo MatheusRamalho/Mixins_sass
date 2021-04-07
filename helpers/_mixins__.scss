@@ -26,12 +26,20 @@
 }
 
 // Truncate.
-@mixin truncate__($value) {
-    max-width: $value;
-    white-space: nowrap;
+@mixin truncate__($orientation: horizontal, $value) {
     overflow: hidden;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
+
+    @if ($orientation == horizontal) {
+        max-width: $value;
+        white-space: nowrap;
+
+    } @else if ($orientation == vertical) {
+        display: -webkit-box;
+        -webkit-line-clamp: $value; // número de linhas que você quer exibir.
+        -webkit-box-orient: vertical;
+    }
 }
 
 // Placeholder.
