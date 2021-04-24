@@ -11,13 +11,13 @@
     width: 1.875rem;
     height: 1.875rem;
     display: inline-block;
-    background-color: $color__black;
+    background-color: $black__1;
     background-repeat: no-repeat;
 
     @include transition__($duration: 200ms, $property: background-color);
 
     &:hover, &:focus {
-        background-color: $color__pri;
+        background-color: $color__1;
     }
 }
 

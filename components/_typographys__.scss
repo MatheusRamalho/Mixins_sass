@@ -5,11 +5,11 @@ h6, .h6__, h5, .h5__,
 h4, .h4__, h3, .h3__,
 h2, .h2__, h1, .h1__ {
     margin: 0 0 0.5rem 0;
-    font-family: $font__title;
+    // font-family: ;
 
     @include font__format(
         $weight: 400,
-        $color: $color__black,
+        $color: $black__1,
         $lineH: 1.2,
         $letterS: normal,
         $textT: none,
@@ -65,12 +65,12 @@ h6, .h6__ {
 .text__,
 .text__small {
     margin: 0;
-    font-family: $font__text;
+    // font-family: ;
     font-size: 1rem;
 
     @include font__format(
         $weight: 400,
-        $color: $color__black,
+        $color: $black__1,
         $lineH: 1.2,
         $letterS: normal,
         $textT: none,
@@ -79,7 +79,7 @@ h6, .h6__ {
 }
 
 .text__small {
-    font-family: $font__text__small;
+    // font-family: ;
     font-weight: 300;
     font-size: 0.8rem;
 }

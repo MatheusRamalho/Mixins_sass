@@ -1,10 +1,7 @@
 
-### MIXINS & FUNCTIONS SASS
+### STYLES SASS
 
-    Arquivos com códigos mixins e functions que são frequentimente utilizados em meus projetos. 
-    Códigos onde a maioria faz uso das versões me webkit para que funcione na maioria dos browsers, 
-    claro que alguns possuem propriedades que alguns navegadores ainda não suportam.
-
+Arquivos com códigos escritos em SASS, códigos que são frequentemente utilizados em meus projetos.
 
 ### COMANDOS SASS
 

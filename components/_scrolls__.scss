@@ -6,7 +6,7 @@
 * {
     // Firefox.
     scrollbar-width: auto;  // values: auto, thin ou none.
-    scrollbar-color: $color__grey transparent;
+    scrollbar-color: $gray__2 transparent;
     
     // Chrome, Edge e Safari .
     &::-webkit-scrollbar { // BAR.
@@ -14,7 +14,7 @@
     }
     
     &::-webkit-scrollbar-thumb { // BAR ALÇA.
-        background-color: $color__grey;
+        background-color: $gray__2;
     }
     
     &::-webkit-scrollbar-track { // BAR FUNDO.

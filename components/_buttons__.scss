@@ -1,21 +1,24 @@
 // | BUTTONS |
 
+button,
 .button__ {
     cursor: pointer;
     display: inline-block;
+
     width: fit-content;
     height: auto;
     margin: 0.5rem 0.5rem 0.5rem 0;
     padding: 0.8rem 1.5rem;
     border: none;
     border-radius: 1.25rem;
-    background-color: $color__snow;
-    outline: none;
-    text-decoration: none;
-    font-family: $font__text;
+    background-color: $gray__1;
+    
+    // font-family: ;
     font-size: 0.875rem;
+    text-decoration: none;
+    outline: none;
 
-    @include font__format($weight: 500, $color: $color__black, $lineH: 1.25rem, $textA: center);
+    @include font__format($weight: 500, $color: $black__1, $lineH: 1.25rem, $textA: center);
     @include transition__($duration: 200ms, $property: color);
     @include flex__combo;
 
@@ -26,19 +29,19 @@
     }
 
     &:hover, &:focus { // Quando recebe foco ou o mouse passa pelo elemento.
-        background-color: $color__grey;
+        background-color: $gray__2;
 
         .icon__ {
-            background-color: $color__pri;
+            background-color: $color__1;
         }
     }
 
     &:active { // Quando é clicado.
-        background-color: $color__pri;
-        color: $color__white;
+        background-color: $color__1;
+        color: $white;
 
         .icon__ {
-            background-color: $color__white;
+            background-color: $white;
         }
     }
 }
