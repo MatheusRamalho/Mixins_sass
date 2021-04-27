@@ -8,9 +8,10 @@
 // Class padrão.
 // Formatação padrão para todos os icones.
 .icon__ {
+    display: inline-block;
+    
     width: 1.875rem;
     height: 1.875rem;
-    display: inline-block;
     background-color: $black__1;
     background-repeat: no-repeat;
 

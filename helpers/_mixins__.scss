@@ -433,7 +433,7 @@
 //     "item03 item04"
 // ;
 
-@mixin grid__templete__areas() {
+@mixin grid__template__areas() {
 }
 
 // Grid gap.
@@ -478,7 +478,7 @@
     font-display: $display; // Determina como uma face de fonte é exibida com base em se e quando ela foi baixada e está pronta para uso.
     font-stretch: $stretch; // Seleciona uma face normal, condensada ou expandida de uma fonte.
     font-synthesis: $synthesis; // Controla quais fontes ausentes, negrito ou itálico, podem ser sintetizadas pelo navegador.
-    font-kerning: $kerning; // Informação de kerning, controle de ocmo as letras serão espaçadas.
+    font-kerning: $kerning; // Informação de kerning, controle de como as letras serão espaçadas.
 }
 
 // Formatando fonts.
@@ -626,6 +626,7 @@
     height: $height;
     border-radius: $borderR;
     background-color: $color;
+    
     display: block;
 
     // Alinhado ao centro.
