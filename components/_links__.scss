@@ -6,23 +6,30 @@
 .link__:link {
     width: fit-content;
     height: auto;
-    padding: 0.5rem 1rem;
-    border-radius: 0.75rem;
-    background-color: $gray__1;
+    margin: 0.3rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.50rem;
+    background-color: $gray__2;
     
-    // font-family: ;
     font-style: normal;
     font-size: 0.8rem;
-    color: $gray__3;
+    color: $black__1;
     text-decoration: none;
     outline: none;
 
-    &:visited { // Quando o link for visitado.
-        color: $black__1;
-    }
+    @include transition__(
+        $duration: 1s, 
+        $delay: 0s,
+        $property: filter,
+        $function: ease
+    );
 
-    &:hover, &:focus { // Quando o link recebe o mouse.
-        background-color: $color__2;
+    &:visited, // Quando o link for visitado.
+    &:hover, // Quando o link recebe o mouse.
+    &:focus { // Quando o link é focado.
+        filter: brightness(0.9);
+
+        font-weight: bold;
         color: $black__1;
     }
 

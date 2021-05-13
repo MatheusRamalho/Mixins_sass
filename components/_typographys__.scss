@@ -5,7 +5,6 @@ h6, .h6__, h5, .h5__,
 h4, .h4__, h3, .h3__,
 h2, .h2__, h1, .h1__ {
     margin: 0 0 0.5rem 0;
-    // font-family: ;
 
     @include font__format(
         $weight: 400,
@@ -41,9 +40,25 @@ h6, .h6__ {
     font-size: 1rem;
 }
 
+// Formatação apra textos comuns
+p,
+.text__ {
+    margin: 0;
+    font-size: 1rem;
+
+    @include font__format(
+        $weight: 400,
+        $color: $black__1,
+        $lineH: 1.2,
+        $letterS: normal,
+        $textT: none,
+        $textA: start
+    );
+}
+
 //  MEDIA QUERIES
 
-@media (min-width: 1200px) {
+@media (min-width: $mq__1200) {
     h1, .h1__ {
         font-size: 2.5rem;
     }
@@ -59,33 +74,4 @@ h6, .h6__ {
     h4, .h4__ {
         font-size: 1.5rem;
     }
-}
-
-// Formatação apra textos comuns
-.text__,
-.text__small {
-    margin: 0;
-    // font-family: ;
-    font-size: 1rem;
-
-    @include font__format(
-        $weight: 400,
-        $color: $black__1,
-        $lineH: 1.2,
-        $letterS: normal,
-        $textT: none,
-        $textA: start
-    );
-}
-
-.text__small {
-    // font-family: ;
-    font-weight: 300;
-    font-size: 0.8rem;
-}
-
-p,
-p.text__,
-p.text__small {
-    margin-bottom: 0.5rem;
 }
