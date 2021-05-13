@@ -5,13 +5,13 @@
     display: inline-block;
 
     width: fit-content;
-    height: auto;
+    height: 3.688rem;
     margin: 0.3rem;
     padding: 0 1.3rem;
     border: none;
     border-radius: 0.68rem;
     background-color: $gray__1;
-    
+
     font-size: 1rem;
     text-decoration: none;
     outline: none;
@@ -48,7 +48,7 @@
     border: none;
     border-radius: 0.75rem;
     background-color: $gray__1;
-    
+
     @include flex__combo;
     @include transition__($property: filter);
 
