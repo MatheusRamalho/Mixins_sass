@@ -23,8 +23,8 @@
         $lineH: 3.688rem,
         $textA: center
     );
-    @include transition__($duration: 200ms, $property: color);
     @include flex__combo;
+    @include transition__($duration: 200ms, $property: color);
 
     &.button__full {
         width: 100%;
@@ -35,6 +35,27 @@
         height: 1.7rem;
         margin-right: 0.7rem;
         background-color: $color__1;
+    }
+}
+
+.button__icon {
+    cursor: pointer;
+    display: inline-block;
+
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: 0.2rem;
+    border: none;
+    border-radius: 0.75rem;
+    background-color: $gray__1;
+    
+    @include flex__combo;
+    @include transition__($property: filter);
+
+    .icon__ {
+        width: 1.7rem;
+        height: 1.7rem;
+        background-color: $black__1;
     }
 }
 
