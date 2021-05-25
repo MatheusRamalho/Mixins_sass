@@ -1,5 +1,57 @@
 // | VARIABLES |
 
+// COLORS
+$color__1: #9164FA;
+$color__2: #8257E5;
+
+$white: #FFFFFF;
+$gray__1: #F3F3F4;
+$gray__2: #E7E7E9;
+$gray__3: #AFB2B1;
+$black__1: #26252A;
+$black__2: #201F24;
+
+$blue: #1766FF;
+$green: #7FBA7A;
+$yellow: #FFCE73;
+$red: #E87176;
+
+// VECTORS
+$colors: (
+    'pri': $color__1,
+    'sec': $color__2,
+
+    'white': $white,
+    'gray1': $gray__1,
+    'gray2': $gray__2,
+    'gray3': $gray__3,
+    'black1': $black__1,
+    'black2': $black__2,
+
+    'blue': $blue,
+    'green': $green,
+    'yellow': $yellow,
+    'red': $red
+);
+
+// EACHS
+@each $name, $bg in $colors {
+    .bg__#{$name} {
+        background-color: $bg;
+        color: $white;
+
+        @if (
+            $name == 'white'or
+            $name == 'gray1'or
+            $name == 'gray2'or
+            $name == 'gray3'or
+            $name == 'yellow'
+        ) {
+            color: $black__1;
+        }
+    }
+}
+
 // MEDIAS
 $mq__1440: 1440px;
 $mq__1400: 1400px;
