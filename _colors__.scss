@@ -1,18 +1,41 @@
 // | COLORS |
 
-$color__1: #9164FA;
-$color__2: #8257E5;
+:root {
+    --color__1: #9164FA;
+    --color__2: #8257E5;
+    --color__3: #D67EE2;
+    
+    --white: #FFFFFF;
+    
+    --gray__1: #F3F3F4;
+    --gray__2: #E7E7E9;
+    --gray__3: #AFB2B1;
 
-$white: #FFFFFF;
+    --black__1: #26252A;
+    --black__2: #201F24;
 
-$gray__1: #F3F3F4;
-$gray__2: #E7E7E9;
-$gray__3: #AFB2B1;
+    --blue: #1766FF;
+    --green: #7FBA7A;
+    --yellow: #FFCE73;
+    --red: #E87176;
+}
 
-$black__1: #26252A;
-$black__2: #201F24;
+$colors: (
+    'colorPri': var(--color__1),
+    'colorSec': var(--color__2),
+    'colorTer': var(--color__3),
 
-$blue: #1766FF;
-$green: #7FBA7A;
-$yellow: #FFCE73;
-$red: #E87176;
+    'colorWhite': var(--white),
+
+    'colorGray1': var(--gray__1),
+    'colorGray2': var(--gray__2),
+    'colorGray3': var(--gray__3),
+
+    'colorBlack1': var(--black__1),
+    'colorBlack2': var(--black__2),
+
+    'colorBlue': var(--blue),
+    'colorGreen': var(--green),
+    'colorYellow': var(--yellow),
+    'colorRed': var(--red)
+);

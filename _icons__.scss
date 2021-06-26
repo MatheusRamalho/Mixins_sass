@@ -12,13 +12,13 @@
     
     width: 1.875rem;
     height: 1.875rem;
-    background-color: $black__1;
+    background-color: var(--black__1);
     background-repeat: no-repeat;
 
     @include transition__($duration: 200ms, $property: background-color);
 
     &:hover, &:focus {
-        background-color: $color__1;
+        background-color: var(--color__1);
     }
 }
 
