@@ -14,8 +14,7 @@
     height: 1.875rem;
     background-color: var(--black__1);
     background-repeat: no-repeat;
-
-    @include transition__($duration: 200ms, $property: background-color);
+    transition: 200ms background-color ease;
 
     &:hover, &:focus {
         background-color: var(--color__1);
